@@ -17,19 +17,21 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupWebView() {
-        webView.webChromeClient = WebChromeClient()
-        webView.webViewClient = PostSearcherClient(object : OnSearchResultListener {
-            override fun onResult(info: JsonObject) {
-                Log.d("SearcherResult", "info: $info")
-            }
-        })
+        webView.run {
+            settings.javaScriptEnabled = true
+            settings.javaScriptCanOpenWindowsAutomatically = true
+            settings.loadWithOverviewMode = true
+            settings.useWideViewPort = true
+            settings.setSupportMultipleWindows(true)
 
-        webView.settings.javaScriptEnabled = true
-        webView.settings.javaScriptCanOpenWindowsAutomatically = true
-        webView.settings.loadWithOverviewMode = true
-        webView.settings.useWideViewPort = true
-        webView.settings.setSupportMultipleWindows(true)
+            webChromeClient = WebChromeClient()
+            webViewClient = PostSearcherClient(object : OnSearchResultListener {
+                override fun onResult(info: JsonObject) {
+                    Log.d("SearcherResult", "info: $info")
+                }
+            })
 
-        webView.loadUrl(requestURL)
+            loadUrl(requestURL)
+        }
     }
 }
