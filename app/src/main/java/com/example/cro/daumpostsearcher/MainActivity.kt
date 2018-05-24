@@ -8,7 +8,7 @@ import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private val requestURL = "https://cdn.rawgit.com/dev-juyoung/bb4d52b1ad3bb0fd4a42e72cf2da00e3/raw/0312d6b7c0756af30514b7d2faa9f6703a535b07/eatcoin-post-searcher.html"
+    private val requestURL = "https://goo.gl/ff7hco"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
